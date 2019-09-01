@@ -3,7 +3,7 @@ package object_oriented;
 public class GetterTest {
 	public static void main(String[] args) {
 		Access a = new Access();
-		
+		//commit
 		//a라는 참조객체를 통해 반환된 address의 객체의 값을 변경 시, 객체 a의 변수값이 변경이 이루어짐
 		Address address=a.getAddress();
 		address.name="강남으로 변경";
