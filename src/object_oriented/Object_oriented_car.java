@@ -1,6 +1,5 @@
 package object_oriented;
 
-import java.lang.reflect.Constructor;
 
 public class Object_oriented_car {
 	public static void main(String[] args) {
