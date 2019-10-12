@@ -6,7 +6,7 @@ public class Button {
 	public Button(Command theCommand) {
 		setCommand(theCommand);
 	}
-
+//test
 	public void setCommand(Command newCommand) {
 		this.theCommand = newCommand;
 	}
