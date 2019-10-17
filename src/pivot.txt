@@ -1,0 +1,21 @@
+create table cntTable (
+	pnum varchar(50),
+	intervalTime varchar(50),
+	cnt int
+)
+insert into cntTable values('1023', '09:00~09:10', 10)
+insert into cntTable values('1023', '09:10~09:20', 2)
+insert into cntTable values('1023', '09:20~09:30', 5)
+insert into cntTable values('1023', '09:40~09:50', 11)
+
+insert into cntTable values('2323', '09:00~09:10', 3)
+insert into cntTable values('2323', '09:10~09:20', 5)
+insert into cntTable values('2323', '09:20~09:30', 7)
+insert into cntTable values('2323', '09:40~09:50', 1)
+
+select * from cnttable
+
+select pnum,[09:00~09:10],[09:10~09:20],[09:20~09:30],[09:30~09:40],[09:40~09:50] from (
+select * from cntTable
+) Q pivot ( sum(cnt) for intervalTime in 
+([09:00~09:10],[09:10~09:20],[09:20~09:30],[09:30~09:40],[09:40~09:50]))p
