@@ -37,3 +37,14 @@ select * from mkTable order by pnum
 select * from cntTable
 
 select * from  mktable where cplTIme between '090000' and '091000'
+
+
+select pnum,'09:00~09:10' as intervalTime ,
+count(case when cplTIme between '090000' and '091000' then 1 end) 
+as cnt from mktable group by pnum
+
+union all 
+
+select pnum,'09:10~09:20' as intervalTime ,
+count(case when cplTIme between '091000' and '092000' then 1 end) 
+as cnt from mktable group by pnum
