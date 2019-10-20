@@ -1,12 +1,13 @@
-package threadChapter;
+package threadChapter.unit3;
 
-public class MyRuns implements Runnable{
+public class MyRuns2 implements Runnable {
+	private int i = 0;
 	@Override
-	public void run() {
+	public void run(){
 		show();
 	}
 	public void show() {
-		for(int i = 0 ; i < 500; i++) {
+		for( ; i < 500; i++) {
 			if(((Thread.currentThread()).getName()).equals("a")) {
 				System.out.print("A");
 			}else if(((Thread.currentThread()).getName()).equals("b")) {

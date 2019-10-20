@@ -1,4 +1,4 @@
-package threadChapter;
+package threadChapter.unit2;
 
 public class MyRunsMain {
 	public static void main(String[] args) {

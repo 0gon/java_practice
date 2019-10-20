@@ -1,4 +1,4 @@
-package threadChapter;
+package threadChapter.unit1;
 
 public class MyRun implements Runnable{
 
