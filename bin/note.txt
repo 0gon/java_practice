@@ -1,0 +1,15 @@
+DECLARE @trnsDtS	VARCHAR(8) = '20191007'
+DECLARE @startTime  VARCHAR(20) = '20:00'
+DECLARE @intervalTime  VARCHAR(100) = '5'
+DECLARE @convertTime  VARCHAR(100) = substring(@trnsDtS+@startTime,1,8) + ' ' 
++ substring(@trnsDtS+@startTime,9,2) +substring(@trnsDtS+@startTime,11,3)
+
+--DECLARE @sql nvarchar(max)
+--set @sql = 'select ' +@intervalTime+'as '+'20:00~20'
+--exec sp_executesql @sql
+-- select CONVERT(nvarCHAR(5), DATEADD(MI,CONVERT(int,@intervalTime),@convertTime),8)
+ select @convertTime as '12:20'
+--select @startTime
+--select REPLACE(@startTime,':','')
+--SELECT REPLACE(CONVERT(CHAR(5), DATEADD(MI,CONVERT(int, @intervalTime),@convertTime), 8),':','')
+--SELECT REPLACE(CONVERT(CHAR(5), DATEADD(MI,CONVERT(int, 2*@intervalTime),@convertTime), 8),':','')
