@@ -1,0 +1,50 @@
+create table cntTable (
+	pnum varchar(50),
+	intervalTime varchar(50),
+	cnt int
+)
+insert into cntTable values('1023', '09:00~09:10', 10)
+insert into cntTable values('1023', '09:10~09:20', 2)
+insert into cntTable values('1023', '09:20~09:30', 5)
+insert into cntTable values('1023', '09:40~09:50', 11)
+
+insert into cntTable values('2323', '09:00~09:10', 3)
+insert into cntTable values('2323', '09:10~09:20', 5)
+insert into cntTable values('2323', '09:20~09:30', 7)
+insert into cntTable values('2323', '09:40~09:50', 1)
+
+select * from cnttable
+
+select pnum,[09:00~09:10],[09:10~09:20],[09:20~09:30],[09:30~09:40],[09:40~09:50] from (
+select * from cntTable
+) Q pivot ( sum(cnt) for intervalTime in 
+([09:00~09:10],[09:10~09:20],[09:20~09:30],[09:30~09:40],[09:40~09:50]))p
+
+create table mkTable (
+ pnum varchar(10),
+ cplTime varchar(10)
+)
+
+insert into mkTable values ( '1022', '091000')
+insert into mkTable values ( '1022', '091200')
+insert into mkTable values ( '1022', '091300')
+insert into mkTable values ( '1024', '091400')
+insert into mkTable values ( '1024', '091500')
+insert into mkTable values ( '1024', '091000')
+
+select * from mkTable order by pnum
+
+select * from cntTable
+
+select * from  mktable where cplTIme between '090000' and '091000'
+
+
+select pnum,'09:00~09:10' as intervalTime ,
+count(case when cplTIme between '090000' and '091000' then 1 end) 
+as cnt from mktable group by pnum
+
+union all 
+
+select pnum,'09:10~09:20' as intervalTime ,
+count(case when cplTIme between '091000' and '092000' then 1 end) 
+as cnt from mktable group by pnum
