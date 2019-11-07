@@ -28,19 +28,18 @@ public class Aes128 {
     private final static String KEY = "01234567890123456789012345678901";
 
     // 128bit (16자리)
-    private final static String KEY_128 = KEY.substring(0, 128 / 8);
+    private final static String KEY_128 = KEY.substring(0, 18);
     
     // 256bit (32자리)
     private final static String KEY_256 = KEY.substring(0, 256 / 8);
 
     // AES 128 암호화
     public static String encryptAES128(String string) {
-
            try {
                    byte[] keyData = KEY_128.getBytes(CharEncoding.UTF_8);
 
                    // 운용모드 CBC, 패딩은 PKCS5Padding
-                   Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                   Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
                    cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(keyData, "AES"), new IvParameterSpec(keyData));
                    // AES 암호화
                    byte[] encrypted = cipher.doFinal(string.getBytes(CharEncoding.UTF_8));
@@ -51,7 +50,8 @@ public class Aes128 {
                    return result;
            }
            catch (Exception e) {
-                   return null;
+        	    e.printStackTrace();
+        	    return null;
            }
     }
 
