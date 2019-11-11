@@ -13,7 +13,7 @@ public class Aes128 {
 	
     public static void main(String[] args) {
     	 
-        String str1 = "¾ÏÈ£È­µÇÁö ¾ÊÀº ¹®ÀÚ";
+    	String str1="ì•”í˜¸í™”ë˜ì§€ ì•Šì€ ë©”ì„¸ì§€";
         System.out.println("plain : " + str1);
 
         String str2 = encryptAES128(str1);
@@ -24,26 +24,23 @@ public class Aes128 {
 
  }
 	
-	   // Å°
     private final static String KEY = "01234567890123456789012345678901";
 
-    // 128bit (16ÀÚ¸®)
-    private final static String KEY_128 = KEY.substring(0, 1);
+    // 128bit (16ìë¦¬)
+    private final static String KEY_128 = KEY.substring(0, 16);
     
-    // 256bit (32ÀÚ¸®)
-    private final static String KEY_256 = KEY.substring(0, 256 / 8);
+    // 256bit (32ï¿½ï¿½ç”±ï¿½)
+    private final static String KEY_256 = KEY.substring(0, 32);
 
-    // AES 128 ¾ÏÈ£È­
+    // AES 128 ï¿½ï¿½ï¿½ëª…ï¿½ï¿½
     public static String encryptAES128(String string) {
            try {
                    byte[] keyData = KEY_128.getBytes(CharEncoding.UTF_8);
 
-                   // ¿î¿ë¸ğµå CBC, ÆĞµùÀº PKCS5Padding
+                   // ìš´ìš©ëª¨ë“œ CBC, íŒ¨ë”©ì€ PKCS5Padding
                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                    cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(keyData, "AES"), new IvParameterSpec(keyData));
-                   // AES ¾ÏÈ£È­
                    byte[] encrypted = cipher.doFinal(string.getBytes(CharEncoding.UTF_8));
-                   // base64 ÀÎÄÚµù
                    byte[] base64Encoded = Base64.encodeBase64(encrypted);
                    String result = new String(base64Encoded, CharEncoding.UTF_8);
 
@@ -55,24 +52,20 @@ public class Aes128 {
            }
     }
 
-    // AES 128º¹È£È­
+    // AES 128è¹‚ë“¯ï¿½ëª…ï¿½ï¿½
     public static String decryptAES128(String string) {
 
            try {
                    byte[] keyData = KEY_128.getBytes(CharEncoding.UTF_8);
 
-                   // ¿î¿ë¸ğµå CBC, ÆĞµùÀº PKCS5Padding
                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 
                    cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(keyData, "AES"), new IvParameterSpec(keyData));
 
-                   // base64 µğÄÚµù
                    byte[] base64Decoded = Base64.decodeBase64(string.getBytes(CharEncoding.UTF_8));
 
-                   // AES º¹È­È­
                    byte[] decrypted = cipher.doFinal(base64Decoded);
 
-                   // °á°ú
                    String result = new String(decrypted, CharEncoding.UTF_8);
 
                    return result;

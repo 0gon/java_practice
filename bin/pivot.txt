@@ -28,9 +28,7 @@ create table mkTable (
 insert into mkTable values ( '1022', '091000')
 insert into mkTable values ( '1022', '091200')
 insert into mkTable values ( '1022', '091300')
-insert into mkTable values ( '1024', '091400')
-insert into mkTable values ( '1024', '091500')
-insert into mkTable values ( '1024', '091000')
+
 
 select * from mkTable order by pnum
 
