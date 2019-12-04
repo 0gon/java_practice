@@ -1,0 +1,13 @@
+Sub splitFuntion()
+    Dim txt As String
+    Dim varName() As String
+    Dim cnt As Long
+    txt = Cells(2, 1).Value
+    cnt = UBound(Split(Cells(2, 1), "&")) - LBound(Split(Cells(2, 1), "&")) + 1
+    ReDim varName(1 To cnt)
+    varName = Split(Cells(2, 1), "&")
+    
+    For i = 0 To cnt - 1
+        Cells(6 + i, 1).Value = varName(i)
+    Next i
+End Sub
