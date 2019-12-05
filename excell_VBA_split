@@ -1,13 +1,47 @@
-Sub splitFuntion()
+
+Sub splitFuntion_res()
     Dim txt As String
+    Dim Qid As String
+    Dim Qlength As String
     Dim varName() As String
+    Dim fieldSet As Long
     Dim cnt As Long
-    txt = Cells(2, 1).Value
-    cnt = UBound(Split(Cells(2, 1), "&")) - LBound(Split(Cells(2, 1), "&")) + 1
-    ReDim varName(1 To cnt)
-    varName = Split(Cells(2, 1), "&")
     
-    For i = 0 To cnt - 1
-        Cells(6 + i, 1).Value = varName(i)
+    
+    If Not IsEmpty(Worksheets("전문분해").Cells(19, 7).Value) Then
+    Qid = Worksheets("전문분해").Cells(11, 2).Value
+    Qlength = Worksheets("전문분해").Cells(10, 2).Value
+    txt = Worksheets("전문분해").Cells(9, 2).Value
+    cnt = UBound(Split(Worksheets("전문분해").Cells(9, 2), "●")) - LBound(Split(Worksheets("전문분해").Cells(9, 2), "●")) + 1
+    
+    ReDim varName(1 To cnt)
+  
+    
+    varName = Split(Worksheets("전문분해").Cells(9, 2), "●")
+    
+    Worksheets(Qid).Select
+   
+    For i = 8 To 500
+        If (Worksheets(Qid).Cells(i, 7) = "필드형") Then
+            fieldSet = i + 1
+        End If
     Next i
+        
+    Worksheets(Qid).Cells(fieldSet, 7) = Qlength
+    Worksheets(Qid).Cells(fieldSet + 1, 7) = Qid
+    Worksheets(Qid).Cells(fieldSet, 7).Interior.Color = RGB(0, 255, 0)
+    Worksheets(Qid).Cells(fieldSet + 1, 7).Interior.Color = RGB(0, 255, 0)
+        
+        
+     For i = 1 To cnt - 1
+             Worksheets(Qid).Cells(fieldSet + 1 + i, 7).Value = varName(i)
+             Worksheets(Qid).Cells(fieldSet + 1 + i, 7).Interior.Color = RGB(0, 255, 0)
+     Next i
+            
+    Worksheets(Qid).Cells(fieldSet + 1, 7).Select
+       
+    End If
+       
+
+
 End Sub
