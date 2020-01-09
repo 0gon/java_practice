@@ -1,0 +1,5 @@
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "IP" -Force
+$MyPassword = "pwd" | ConvertTo-SecureString -AsPlainText -Force
+$ObjectTypeName = "System.Management.Automation.PSCredential"
+$MyCredential = New-Object -TypeName $ObjectTypeName -ArgumentList "hostname",$MyPassword
+Enter-PSSession IP -Credential $MyCredential
