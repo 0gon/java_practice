@@ -9,3 +9,9 @@ Invoke-Command -ComputerName IP -FilePath C:\server\a1.ps1 -Credential $MyCreden
 
 -- win 10 pro 업데이트 이 후, 클라이언트PC에 해당 명령어 실행
 WinRM quickconfig
+
+-- 명령어가 안먹혔던 이유: invoke-command 가 실행 후 세션이 종료되기 때문
+Invoke-Command -InDisconnectedSession -ComputerName "아이피" -ScriptBlock {Invoke-Expression -Command:"start '실행경로' -Verb RunAs"} -Credential $MyCredential
+
+
+https://www.sysnet.pe.kr/Default.aspx?mode=2&sub=0&pageno=25&detail=1&wid=11450
