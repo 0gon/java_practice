@@ -1,4 +1,4 @@
-package chapter;
+package encryption;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ public class ForeachLambda {
 		//#1
 		mmlists.forEach(m->{System.out.print(m+"\t");});
 		System.out.println();
-		//#2 °°Àº°á°ú ´Ù¸¥ ¹æ½Ä
+		//#2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½
 		Consumer<Integer> consume = (Integer m)->{System.out.print(m+"\t");};
 		mmlists.forEach(consume);
 		

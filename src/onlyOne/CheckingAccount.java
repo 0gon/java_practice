@@ -1,26 +1,26 @@
-package chapter4_onlyOne;
+package onlyOne;
 
 public class CheckingAccount {
 	private int transferLimit = 100;
 	public Transfer makeTransfer(String counterAccount, Money amount) throws BusinessException{
-		//ÀÌÃ¼ ÇÑµµ Ã¼Å©
+		//ï¿½ï¿½Ã¼ ï¿½Ñµï¿½ Ã¼Å©
 		if(amount.greaterThan(this.transferLimit)) {
-			throw new BusinessException("ÇÑµµÃÊ°ú");
+			throw new BusinessException("ï¿½Ñµï¿½ï¿½Ê°ï¿½");
 		}
-		// °èÁÂ¹øÈ£ Ã¼Å©
+		// ï¿½ï¿½ï¿½Â¹ï¿½È£ Ã¼Å©
 		/*
 		int sum=0;
 		for (int i = 0 ; i< counterAccount.length();i++) {
 			sum = sum + (9-i)*Character.getNumericValue(counterAccount.charAt(i));
 		}
-		¸Þ¼­µåÈ­ ½ÃÅ°±â
+		ï¿½Þ¼ï¿½ï¿½ï¿½È­ ï¿½ï¿½Å°ï¿½ï¿½
 		*/ 
 		if(isValid(counterAccount)) {  
 			CheckingAccount acct = CheckingAccount.findAcctByNumber(counterAccount);
 			Transfer result = new Transfer(this, acct, amount);
 			return result;
 		}else {
-			throw new BusinessException("Àß¸øµÈ °èÁÂ");
+			throw new BusinessException("ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	

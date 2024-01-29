@@ -1,4 +1,4 @@
-package chapter;
+package encryption;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;

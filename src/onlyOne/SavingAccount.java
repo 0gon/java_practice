@@ -1,4 +1,4 @@
-package chapter4_onlyOne;
+package onlyOne;
 
 public class SavingAccount {
 	
@@ -12,10 +12,10 @@ public class SavingAccount {
 			if(result.equals("something")) {
 				return result;
 			}else {
-				throw new BusinessException("»ó´ëÆí °èÁÂ°¡ µî·ÏµÇÁö ¾ÊÀ½");
+				throw new BusinessException("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			}
 		}else {
-			throw new BusinessException("Àß¸øµÈ °èÁÂ");
+			throw new BusinessException("ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	

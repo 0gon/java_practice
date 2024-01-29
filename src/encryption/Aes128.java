@@ -1,4 +1,4 @@
-package chapter;
+package encryption;
 
 
 import javax.crypto.Cipher;

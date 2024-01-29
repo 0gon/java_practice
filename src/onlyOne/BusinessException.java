@@ -1,4 +1,4 @@
-package chapter4_onlyOne;
+package onlyOne;
 
 public class BusinessException extends Exception {
 

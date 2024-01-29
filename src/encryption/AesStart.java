@@ -1,8 +1,8 @@
-package chapter;
+package encryption;
 
 public class AesStart {
 	public static void main(String[] args) {
-		String a= Aes128_2.Encrypt128("¾ÏÈ£È­µÇÁö ¾ÊÀº ¸Þ¼¼Áö");
+		String a= Aes128_2.Encrypt128("ï¿½ï¿½È£È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½");
 		System.out.println(a);
 		String b = Aes128_2.Decrypt128(a);
 		System.out.println(b);
