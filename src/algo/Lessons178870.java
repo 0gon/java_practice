@@ -44,7 +44,7 @@ public class Lessons178870 {
 		
 	}
 	
-    private class SubSequence implements Comparable<SubSequence>{
+    static class SubSequence implements Comparable<SubSequence>{
         int left, right, size;
 
         public SubSequence(int left, int right) {
