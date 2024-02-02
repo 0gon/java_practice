@@ -31,8 +31,26 @@ n   m    sect       answer
 	public static void main(String[] args) {
 		int[] section = { 1, 2, 3, 4 };
 		int m = 1;
-
-		int answer = 1;
+		int n = 4;
+		int answer = 0;
+		
+		int startPoint = section[0];
+		int endPoint = section[section.length-1];
+		
+		for(int i = 1 ; i <= n ; i++) {
+			if(i >= startPoint) {
+				answer++;
+				if(i+m > endPoint) break;
+			}
+		}
+		
+		
+		/*
+		while(startPoint + m - 1 < endPoint) {
+			answer++;
+			startPoint++;
+		}
+		*/
 		/*
         int roller = section[0];
         answer = 1;
@@ -42,14 +60,6 @@ n   m    sect       answer
                 roller = section[i];
             }
         }*/
-		int startPoint = section[0];
-		int endPoint = section[section.length-1];
-		
-		while(startPoint + m - 1 < endPoint) {
-			answer++;
-			startPoint++;
-		}
-		
 		System.out.println(answer);
 		
 	}
