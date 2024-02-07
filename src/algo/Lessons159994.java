@@ -5,6 +5,28 @@ import java.util.Queue;
 
 public class Lessons159994 {
 	// 큐 간단한 예제
+	/*
+	 * 
+	 *       // 큐의 상태 출력
+        System.out.println("큐의 상태: " + queue); // 출력: [5, 3, 8, 1, 6]
+
+        // 요소 제거 (dequeue)
+        int removedElement = queue.poll();
+        System.out.println("제거된 요소: " + removedElement); // 출력: 5
+
+        // 큐의 상태 출력
+        System.out.println("큐의 상태: " + queue); // 출력: [3, 8, 1, 6]
+
+        // 큐의 첫 번째 요소 확인 (peek)
+        int firstElement = queue.peek();
+        System.out.println("첫 번째 요소: " + firstElement); // 출력: 3
+
+        // 큐의 크기 확인
+        int size = queue.size();
+        System.out.println("큐의 크기: " + size); // 출력: 4
+	 * 
+	 * 
+	 */
 	public static void main(String[] args) {
 		String[] cards1 = {"i", "drink", "water"};
 		String[] cards2 = {"want", "to"};
