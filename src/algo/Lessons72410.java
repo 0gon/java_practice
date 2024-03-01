@@ -34,14 +34,13 @@ public class Lessons72410 {
 		String answer = "";
 		
 		String regex = "[^a-z0-9_\\-\\.]";
-		Pattern pattern = Pattern.compile(regex);
 		
 		// 1 단계
 		answer = new_id.toLowerCase();
 		
 		// 2 단계
 		// "...!@bat#*..y.abcdefghijklm" → "...bat..y.abcdefghijklm"
-		Matcher matcher = pattern.matcher(answer);
+		Matcher matcher =  Pattern.compile(regex).matcher(answer);
 		answer = matcher.replaceAll("");
 
 		// 3 단계
