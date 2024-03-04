@@ -1,10 +1,6 @@
 package algo;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Lessons133502 {
 	/*
@@ -61,7 +57,17 @@ public class Lessons133502 {
 		// 3-1 마지막이 1인경우 큐에서 제거 
 		
 		// 3-2 마지막이 1이 아닌 경우 다시 돌아간다.
-		
+		int [] stack = new int[ingredient.length];
+		int index = 0;
+		for(int i = 0; i < ingredient.length; i++) {
+			stack[index++] = ingredient[i];
+			if(index >= 4) {
+				if(stack[index - 4] == 1 && stack[index -3] == 2 && stack[index -2]== 3 && stack[index -3]==1) {
+					answer ++;
+					index -= 4;
+				}
+			}
+		};
 		
 		Stack<Integer> st = new Stack<>();
 		
