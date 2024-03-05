@@ -6,7 +6,7 @@ public class Lessons155652 {
 	 * 
 s	skip	index	result
 "aukks"	"wbqd"	5	"happy"
-	 * 
+	 * a
 	 */
 	
 	// a : a <b> c <d> e f g [h] i j k 
